@@ -10,11 +10,40 @@
         android:id="@+id/toggleSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:ellipsize="middle"
         android:text="ON/OFF"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.89" />
+
+    <TextView
+        android:id="@+id/currentSongInfoView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="Current Song"
+        android:textSize="60px"
+        app:layout_constraintBottom_toTopOf="@+id/toggleSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.676" />
+
+    <TextView
+        android:id="@+id/currentArtistInfoView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="Current Artist"
+        android:textSize="60px"
+        app:layout_constraintBottom_toTopOf="@+id/toggleSwitch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.785" />
 </androidx.constraintlayout.widget.ConstraintLayout>

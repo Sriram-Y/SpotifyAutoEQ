@@ -1,12 +1,16 @@
 package com.ysri.spotifyautoeq
 
 import android.os.Bundle
+import android.text.Html
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 import com.spotify.android.appremote.api.ConnectionParams
 import com.spotify.android.appremote.api.Connector.ConnectionListener
 import com.spotify.android.appremote.api.SpotifyAppRemote
+import com.spotify.protocol.types.PlayerState
+import com.spotify.protocol.types.Track
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             object : ConnectionListener {
                 override fun onConnected(spotifyAppRemote: SpotifyAppRemote) {
                     mSpotifyAppRemote = spotifyAppRemote
-                    Log.d("MainActivity", "Connected! Yay!")
+                    Log.d("MainActivity", "Connection Established!")
 
                     // Now you can start interacting with App Remote
                     connected()
@@ -47,7 +51,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun connected() {
-        mSpotifyAppRemote?.getPlayerApi()?.play("spotify:playlist:37i9dQZF1DX2sUQwD7tbmL")
+        // Subscribe to PlayerState
+        // Subscribe to PlayerState
+        mSpotifyAppRemote!!.playerApi
+            .subscribeToPlayerState()
+            .setEventCallback { playerState: PlayerState ->
+                val track: Track? = playerState.track
+                if (track != null) {
+                    val currentSongInfoView: TextView = findViewById<TextView>(R.id.currentSongInfoView)
+                    val trackInfo =  "<b>" + track.name + "</b>"
+                    currentSongInfoView.text = Html.fromHtml(trackInfo, 0)
+
+                    val currentArtistInfoView: TextView = findViewById<TextView>(R.id.currentArtistInfoView)
+                    val artistInfo = "<b>" + track.artist.name + "</b>"
+                    currentArtistInfoView.text = Html.fromHtml(artistInfo, 0)
+
+                    
+                }
+            }
     }
 
     override fun onStop() {
