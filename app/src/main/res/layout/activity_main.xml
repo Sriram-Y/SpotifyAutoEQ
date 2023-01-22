@@ -6,33 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Switch
-        android:id="@+id/toggleSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ellipsize="middle"
-        android:text="ON/OFF"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.89" />
-
     <TextView
         android:id="@+id/currentSongInfoView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="serif"
         android:text="@string/current_song"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/toggleSwitch"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.676" />
+        app:layout_constraintVertical_bias="0.39" />
 
     <TextView
         android:id="@+id/currentArtistInfoView"
@@ -40,10 +25,26 @@
         android:layout_height="wrap_content"
         android:fontFamily="serif"
         android:text="@string/current_artist"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/toggleSwitch"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <Switch
+        android:id="@+id/toggleSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="EQ Control"
+        android:textOff="OFF"
+        android:textOn="ON"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785" />
+        app:layout_constraintVertical_bias="0.9" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

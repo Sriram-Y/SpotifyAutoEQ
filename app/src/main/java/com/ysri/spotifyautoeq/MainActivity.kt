@@ -73,13 +73,22 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-        val toggleSwitch: Switch = findViewById<Switch>(R.id.toggleSwitch)
 
+        val toggleSwitch = findViewById<Switch>(R.id.toggleSwitch)
+        toggleSwitch.setOnCheckedChangeListener { _, isChecked ->
+            eqControl(isChecked)
+        }
     }
 
-    fun eqControl(toggleButton: CompoundButton?, checked: Boolean) {
-        // Will be used for eq control later
-        // Now using to update state of toggle on a text view
+    fun eqControl(state: Boolean) {
+        // Will be used for eq control
+        if(state) {
+            Log.d("MainActivity", "eqControl state: ON");
+        }
+        else {
+            Log.d("MainActivity", "eqControl state: OFF");
+        }
+
 
     }
 
