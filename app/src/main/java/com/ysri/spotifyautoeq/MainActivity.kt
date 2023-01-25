@@ -3,8 +3,6 @@ package com.ysri.spotifyautoeq
 import android.os.Bundle
 import android.text.Html
 import android.util.Log
-import android.view.View
-import android.widget.CompoundButton
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -13,11 +11,12 @@ import com.spotify.android.appremote.api.Connector.ConnectionListener
 import com.spotify.android.appremote.api.SpotifyAppRemote
 import com.spotify.protocol.types.PlayerState
 import com.spotify.protocol.types.Track
+import retrofit2.Response
 
 
 class MainActivity : AppCompatActivity() {
     private val CLIENT_ID = "13684737619449b59f2aa606ed3f9b2c"
-    private val REDIRECT_URI = "http://localhost:5555"
+    private val REDIRECT_URI = "spotify-auto-eq://callback"
     private var mSpotifyAppRemote: SpotifyAppRemote? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,10 +82,10 @@ class MainActivity : AppCompatActivity() {
     fun eqControl(state: Boolean) {
         // Will be used for eq control
         if(state) {
-            Log.d("MainActivity", "eqControl state: ON");
+            Log.d("MainActivity", "eqControl state: ON")
         }
         else {
-            Log.d("MainActivity", "eqControl state: OFF");
+            Log.d("MainActivity", "eqControl state: OFF")
         }
 
 
